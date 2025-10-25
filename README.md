@@ -38,15 +38,14 @@
   - Token transfers to fee recipients
   - Final balances (STEXAMM = 0)
 
-### 4. Screenshots (add these manually)
-- screenshot_1_vulnerable_state.png - Mainnet analysis showing $8,375 at risk
-- screenshot_2_proof1_success.png - Proof 1 showing successful theft
-- screenshot_3_economic.png - Economic feasibility analysis
-- screenshot_4_summary.png - Test summary (5 passed)
-
+### 4.check_mainnet_state.cjs
+-  **Content:** Run this to see funds in mainnet
+  
+### 5.MainnetForkExploit.t.sol
+- **Content:** Complete, reproducible test suite
 ---
 
-## 🔬 How to Verify
+##  How to Verify
 
 ### Reproduce the Mainnet Analysis:
 ```bash
