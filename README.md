@@ -1,9 +1,13 @@
 # STEXAMM Front-Running Vulnerability - Evidence Package
 
 **Vulnerability:** Front-Running Attack on User Withdrawals
+
 **Severity:** CRITICAL (RVSS 9.8/10)
+
 **Contract:** 0x39694eFF3b02248929120c73F90347013Aec834d
+
 **Network:** HyperEVM Mainnet (Chain ID 999)
+
 **Submitted by:** @0xramprasad
 
 ---
@@ -91,7 +95,9 @@ forge test --match-test testProof1_ExistingFundsVulnerable \
 ## Contact
 
 **Researcher:** @0xramprasad
+
 **Twitter:** https://x.com/0xramprasad
+
 **Submission:** https://hunt.r.xyz/programs/valantis-stex
 
 ---
