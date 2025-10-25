@@ -43,6 +43,9 @@
   
 ### 5.MainnetForkExploit.t.sol
 - **Content:** Complete, reproducible test suite
+
+### 6. findings.md
+- **Content** Detailed explanation report
 ---
 
 ##  How to Verify
